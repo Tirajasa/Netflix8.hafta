@@ -1,3 +1,25 @@
+
+.profiles-class{
+  display: flex;
+  column-gap: 10px;
+  margin:2rem auto;
+}
+.nav-bar{
+  display: flex;
+  position: fixed;
+  right: 10px;
+  bottom: 10px;
+}
+
+.nav-bar-link {
+  text-decoration: none;
+  margin: 5px;
+  padding: 5px;
+  column-gap: 10px;
+  border: 1px solid rgb(196, 8, 33);
+  color: rgb(253, 58, 97);
+
+}
 #root {
   max-width: 1280px;
   margin: 0 auto;
@@ -17,6 +39,7 @@
 .logo.react:hover {
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
+
 
 @keyframes logo-spin {
   from {
