@@ -5,27 +5,29 @@ import JoinBuzz from './pages/joinBuzz'
 import Login from './pages/login'
 import Welcome from './pages/welcome'
 import Home from './pages/home'
-import { Link } from 'react-router-dom/cjs/react-router-dom.min'
+import { Link } from 'react-router-dom'
 import Header from './components/header/header'
+import { useState } from 'react'
 function App() {
  
-
+  const [activeP,setActiveP]=useState(null);
+  const[elma,setElma]=useState(null)
   return (
   <>
     <Switch>
       <Route exact path="/">Join the buzz
-      <JoinBuzz />
+      <JoinBuzz elma={elma}/>
       </Route>
       <Route exact path="/login">Login
-      <Header/>
+      <Header activeP={activeP}/>
       <Login />
       </Route>
       <Route exact path="/welcome">  
-      <Welcome />
+      <Welcome setActiveProfile={setActiveP} meyve={setElma}/>
       </Route>
       <Route exact path="/home">Watch movies
-      <Header/>
-      <Home />
+      <Header activeP={activeP}/>
+      <Home activeP={activeP}/>
       </Route>
     </Switch>
     <div className="nav-bar">

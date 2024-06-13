@@ -1,15 +1,17 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
 import React from 'react'
-import { Link } from 'react-router-dom/cjs/react-router-dom.min';
+
 import styled from 'styled-components';
- 
+import { useHistory } from 'react-router-dom';
+
 
 const Card=styled.div`
 display:flex;
 flex-direction:column;
 margin:0;
 padding:0;
+cursor:pointer;
 `
 const Avatar=styled.img`
 width:100%;
@@ -26,14 +28,23 @@ text-align:center;
 `;
 
 export const Profile = (props) => {
-  const {profile,onClick}=props;
+  const {profile,setActiveP,setElma}=props;
   const {avatar,name}=profile;
+  const history=useHistory();
 
-
+  function handleClick(profile){
+      setActiveP(profile);
+      
+      history.push("/home");
+    }
+function handleElmayiSec(profile){
+       setElma(profile);
+       
+}
 
   return (
   <>
-    <Card onClick={onClick}>
+    <Card onClick={handleClick}>
       <Avatar src={avatar} alt={name}/>
       <User>{name}</User>
   </Card>
