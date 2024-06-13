@@ -8,6 +8,8 @@ import Home from './pages/home'
 import { Link } from 'react-router-dom'
 import Header from './components/header/header'
 import { useState } from 'react'
+import { Kiddo } from './components/welcome/kiddo'
+import {Watch} from './pages/watch'
 function App() {
  
   const [activeP,setActiveP]=useState(null);
@@ -25,16 +27,24 @@ function App() {
       <Route exact path="/welcome">  
       <Welcome setActiveProfile={setActiveP} meyve={setElma}/>
       </Route>
-      <Route exact path="/home">Watch movies
+      <Route exact path="/browse">Watch movies
       <Header activeP={activeP}/>
       <Home activeP={activeP}/>
+      </Route>
+      <Route exact path="/kids">Watch movies
+      <Header activeP={activeP}/>
+      <Kiddo activeP={activeP}/>
+      </Route>
+      <Route exact path="/watch:id">Watch movies
+      <Header activeP={activeP}/>
+      <Watch activeP={activeP}/>
       </Route>
     </Switch>
     <div className="nav-bar">
       <Link className="nav-bar-link" to="/">Initial</Link>
       <Link className="nav-bar-link" to="/login">Login</Link>
       <Link className="nav-bar-link" to="/welcome">Profiles</Link>
-      <Link className="nav-bar-link" to="/home">Home</Link>
+      <Link className="nav-bar-link" to="/browse">Home</Link>
     </div>
   </>
   )

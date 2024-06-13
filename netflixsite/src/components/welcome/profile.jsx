@@ -3,7 +3,7 @@
 import React from 'react'
 
 import styled from 'styled-components';
-import { useHistory } from 'react-router-dom';
+
 
 
 const Card=styled.div`
@@ -28,15 +28,12 @@ text-align:center;
 `;
 
 export const Profile = (props) => {
-  const {profile,setActiveP,setElma}=props;
+  const {profile,setElma,onClick}=props;
   const {avatar,name}=profile;
-  const history=useHistory();
+  
 
-  function handleClick(profile){
-      setActiveP(profile);
-      
-      history.push("/home");
-    }
+  
+  
 function handleElmayiSec(profile){
        setElma(profile);
        
@@ -44,7 +41,7 @@ function handleElmayiSec(profile){
 
   return (
   <>
-    <Card onClick={handleClick}>
+    <Card onClick={()=>onClick(profile)}>
       <Avatar src={avatar} alt={name}/>
       <User>{name}</User>
   </Card>
