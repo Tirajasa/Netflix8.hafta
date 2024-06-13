@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React from 'react'
-import { Profiles } from '../components/profiles/profiles'
+import { Profiles } from '../components/welcome/profiles'
 import {Button} from 'reactstrap'
 
 function welcome(props) {

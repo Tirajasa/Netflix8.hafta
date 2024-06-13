@@ -1,9 +1,12 @@
 /* eslint-disable no-unused-vars */
 import React from 'react'
+import VideoLine from '../components/main/videoline/videoLine'
 
-function home() {
+function home(props) {
+  const {activeP}=props;
+  const {name}=activeP;
   return (
-    <div>home</div>
+    <VideoLine>Home {name}</VideoLine>
   )
 }
 
