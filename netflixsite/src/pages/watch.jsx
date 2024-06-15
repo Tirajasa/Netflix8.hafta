@@ -1,9 +1,20 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
 import React from 'react'
+import VideoOne from '../components/main/homeVideoline/video';
 
-function Watch() {
+
+function Watch(props) {
+  const {activeVideo,setActiveVideo}=props;
+  function handleOver(){
+
+  
+  setActiveVideo(activeVideo);
+}
   return (
-    <div>watch</div>
+    <>
+    <VideoOne onMouseOver={()=>handleOver()}>watch</VideoOne>
+    </>
   )
 }
 

@@ -9,35 +9,36 @@ import { Link } from 'react-router-dom'
 import Header from './components/header/header'
 import { useState } from 'react'
 import { Kiddo } from './components/welcome/kiddo'
-import {Watch} from './pages/watch'
+import Watch from './pages/watch'
+
 function App() {
  
   const [activeP,setActiveP]=useState(null);
   const[elma,setElma]=useState(null)
+  const [activeVideo,setActiveVideo]=useState(null); 
   return (
   <>
     <Switch>
-      <Route exact path="/">Join the buzz
-      <JoinBuzz elma={elma}/>
+      <Route exact path="/">
+        <JoinBuzz elma={elma}/>
       </Route>
-      <Route exact path="/login">Login
-      <Header activeP={activeP}/>
-      <Login />
+      <Route exact path="/login">
+        <Header activeP={activeP}/>
+        <Login />
       </Route>
       <Route exact path="/welcome">  
-      <Welcome setActiveProfile={setActiveP} meyve={setElma}/>
+        <Welcome setActiveProfile={setActiveP} meyve={setElma}/>
       </Route>
-      <Route exact path="/browse">Watch movies
-      <Header activeP={activeP}/>
-      <Home activeP={activeP}/>
+      <Route exact path="/browse">
+        <Header activeP={activeP}/>
+        <Home activeP={activeP} setActiveVideo={setActiveVideo} activeVideo={activeVideo}/>
       </Route>
-      <Route exact path="/kids">Watch movies
-      <Header activeP={activeP}/>
-      <Kiddo activeP={activeP}/>
+      <Route exact path="/kids">
+        <Header activeP={activeP}/>
+        <Kiddo activeP={activeP}/>
       </Route>
-      <Route exact path="/watch:id">Watch movies
-      <Header activeP={activeP}/>
-      <Watch activeP={activeP}/>
+      <Route exact path="/watch/:id">
+        <Watch activeVideo={activeVideo} setActiveVideo={setActiveVideo}/>
       </Route>
     </Switch>
     <div className="nav-bar">

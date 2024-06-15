@@ -1,13 +1,22 @@
+/* eslint-disable react/prop-types */
+/* eslint-disable react-hooks/rules-of-hooks */
 /* eslint-disable no-unused-vars */
 import React from 'react'
-import VideoLine from '../components/main/videoline/videoLine'
+import VideoLine from '../components/main/homeVideoline/videoLine'
+import { useState } from 'react';
 
-function home(props) {
-  const {activeP}=props;
-  const {name}=activeP;
+function Home(props) {
+  const {setActiveVideo,activeVideo,activeP}=props;
+  const [suggestions,setSuggestions]= useState([]);
+  
+ const {name}=activeP;
+  const isim = activeP ? activeP.name : 'Tobias';
+  
   return (
-    <VideoLine>Home {name}</VideoLine>
+    <VideoLine setSuggestions={setSuggestions} suggestions={suggestions} 
+    activeVideo={activeVideo} setActiveVideo={setActiveVideo}
+     >Home {name?name:isim}</VideoLine>
   )
 }
 
-export default home
+export default Home;
